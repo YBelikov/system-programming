@@ -1,11 +1,17 @@
 package com.ybelikov;
 
+import java.util.Scanner;
 
 
 public class Main {
 
     public static void main(String[] args) {
-        TextProccessor processor = new TextProccessor(args[0]);
+	Scanner sc = new Scanner(System.in);
+	
+	String filePath = sc.nextLine();
+
+        TextProccessor processor = new TextProccessor(filePath);
         System.out.println(processor.countWordsWithMaxDifferentLetters());
     }
+
 }
