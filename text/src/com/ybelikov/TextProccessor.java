@@ -11,61 +11,67 @@ import java.util.stream.Collectors;
 public class TextProccessor {
 
     private String pathToTextFile;
-    private List<Set<Character>> listOfSetOfCharactersInEveryWord;
+    private Map<String, Integer> listOfSetOfCharactersInEveryWord;
     private static final Logger logger = Logger.getLogger(TextProccessor.class.getName());
+    private Integer max;
+    private final Integer MAXLENGTHOFWORD = 30;
 
     public TextProccessor(String pathToTextFile) {
+        this.max = 0;
         this.pathToTextFile = pathToTextFile;
+        this.listOfSetOfCharactersInEveryWord = new HashMap<>();
     }
 
-    public int countWordsWithMaxDifferentLetters() {
+    public void countWordsWithMaxDifferentLetters() {
         int maxNumberOfDifferentLetters = 0;
         try {
             File file = new File(pathToTextFile);
-            Scanner sc = new Scanner(file);
+            Scanner sc = new Scanner(file, "UTF-8");
             while (sc.hasNext()) {
                 var line = sc.nextLine();
-                String[] words = line.split("[!._,'@;? ]");
-                Integer currentMaxNumberOfDifferentLetters = findMaxNumberOfDifferentLetters(words);
-                if (currentMaxNumberOfDifferentLetters > maxNumberOfDifferentLetters) {
-                    maxNumberOfDifferentLetters = currentMaxNumberOfDifferentLetters;
-                }
+                String[] words = line.split("[^a-zA-zа-яА-яёЁЇїІіЄєґҐ]+");
+                findMaxNumberOfDifferentLetters(words);
             }
             sc.close();
         } catch (FileNotFoundException ex) {
             logger.info("Can't find the requested file!");
         } catch (Exception ex) {
-            logger.info("Something went wrong!");
+            logger.info(ex.getMessage());
         }   finally {
-            return makeCalc(maxNumberOfDifferentLetters);
+           // return makeCalc(maxNumberOfDifferentLetters);
         }
     }
 
-    private int makeCalc(Integer maxNumberOfDifferentLetters) {
-        var listWithMaxLetters = listOfSetOfCharactersInEveryWord
-                                    .stream()
-                                    .filter(s -> s.size() == maxNumberOfDifferentLetters)
-                                    .collect(Collectors.toList());
-        return listWithMaxLetters.size();
-    }
-
-    private Integer findMaxNumberOfDifferentLetters(String[] words) {
-
-        var resizedWords = trimWords(words);
-        listOfSetOfCharactersInEveryWord = Arrays.stream(resizedWords)
-                            .map(word -> word.chars()
-                            .mapToObj(ch -> (char)ch)
-                            .collect(Collectors.toSet()))
-                            .collect(Collectors.toList());
-        return listOfSetOfCharactersInEveryWord.stream().mapToInt(set -> set.size()).max().getAsInt();
-    }
-
-    private StringBuilder[] trimWords(String[] words) {
-        StringBuilder[] resizedWords = new StringBuilder[words.length];
-        for (int i = 0; i < words.length; ++i) {
-            resizedWords[i] = new StringBuilder(words[i]);
-            if(resizedWords[i].length() > 30) resizedWords[i].delete(29, words[i].length() - 1);
+    public void printWords() {
+        for (Map.Entry<String, Integer> entry : listOfSetOfCharactersInEveryWord.entrySet()) {
+            if(entry.getValue() == this.max) {
+                System.out.println(entry.getKey());
+            }
         }
-        return resizedWords;
+    }
+
+    private void findMaxNumberOfDifferentLetters(String[] words) {
+        for (var word : words) {
+            if (word.length() > MAXLENGTHOFWORD) {
+                word = word.substring(0, MAXLENGTHOFWORD - 1);
+            }
+            String notSorted = String.valueOf(word);
+            var chars = word.toCharArray();
+
+            Arrays.sort(chars);
+            word = new String(chars);
+            int diffCharCounter = 1;
+            word = word.toLowerCase();
+            for (int i = 1; i < word.length(); ++i) {
+                if (word.charAt(i - 1) != word.charAt(i)) {
+                    ++diffCharCounter;
+                }
+            }
+            notSorted = notSorted.toLowerCase();
+            listOfSetOfCharactersInEveryWord.put(notSorted, diffCharCounter);
+            if (diffCharCounter > this.max) {
+                this.max = diffCharCounter;
+            }
+        }
     }
 }

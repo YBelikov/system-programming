@@ -11,7 +11,8 @@ public class Main {
 	String filePath = sc.nextLine();
 
         TextProccessor processor = new TextProccessor(filePath);
-        System.out.println(processor.countWordsWithMaxDifferentLetters());
+        processor.countWordsWithMaxDifferentLetters();
+        processor.printWords();
     }
 
 }
