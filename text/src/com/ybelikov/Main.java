@@ -6,12 +6,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
-	
-	String filePath = sc.nextLine();
+	    try(Scanner sc = new Scanner(System.in)) {
+        	String filePath = sc.nextLine();
+            TextProccessor processor = new TextProccessor(filePath);
+            processor.countWordsWithMaxDifferentLetters();
+            processor.printWords();
+            sc.close();
+        }
+    }
 
-        TextProccessor processor = new TextProccessor(filePath);
-        processor.countWordsWithMaxDifferentLetters();
-        processor.printWords();
-        sc.close();
-    }}
+}

@@ -13,7 +13,7 @@ public class TextProccessor {
     private static final Logger logger = Logger.getLogger(TextProccessor.class.getName());
     private Integer max;
     private final Integer MAXLENGTHOFWORD = 30;
-
+   
     public TextProccessor(String pathToTextFile) {
         this.max = 0;
         this.pathToTextFile = pathToTextFile;
@@ -22,9 +22,7 @@ public class TextProccessor {
 
     public void countWordsWithMaxDifferentLetters() {
 
-        try {
-            File file = new File(pathToTextFile);
-            Scanner sc = new Scanner(file, "UTF-8");
+        try(Scanner sc = new Scanner(new File(pathToTextFile), "UTF-8")) {
             while (sc.hasNext()) {
                 var line = sc.nextLine();
                 String[] words = line.split("[^a-zA-zа-яА-яёЁЇїІіЄєґҐ]+");
