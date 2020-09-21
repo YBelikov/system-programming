@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.logging.Logger;
 
-import java.util.stream.Collectors;
-
 
 public class TextProccessor {
 
@@ -23,7 +21,7 @@ public class TextProccessor {
     }
 
     public void countWordsWithMaxDifferentLetters() {
-        int maxNumberOfDifferentLetters = 0;
+
         try {
             File file = new File(pathToTextFile);
             Scanner sc = new Scanner(file, "UTF-8");
@@ -37,9 +35,7 @@ public class TextProccessor {
             logger.info("Can't find the requested file!");
         } catch (Exception ex) {
             logger.info(ex.getMessage());
-        }   finally {
-           // return makeCalc(maxNumberOfDifferentLetters);
-        }
+        } 
     }
 
     public void printWords() {

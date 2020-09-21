@@ -13,6 +13,5 @@ public class Main {
         TextProccessor processor = new TextProccessor(filePath);
         processor.countWordsWithMaxDifferentLetters();
         processor.printWords();
-    }
-
-}
+        sc.close();
+    }}
