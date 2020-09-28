@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cf8a75d-7a28-4864-a497-aaa212510523" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../state-machine-minimization/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ybelikov/TextProccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ybelikov/TextProccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/testFile.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +30,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/cycle-rent" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -69,6 +68,7 @@
       <workItem from="1600242201943" duration="65000" />
       <workItem from="1600631439148" duration="940000" />
       <workItem from="1600666189202" duration="3182000" />
+      <workItem from="1600851907316" duration="765000" />
     </task>
     <task id="LOCAL-00001" summary="Rewrite with ability to show word list">
       <created>1600675436991</created>
@@ -88,7 +88,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -107,10 +109,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1600675428463" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1600242272553">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1600854559568">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600242272553" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600854559568" />
     <state width="1323" height="180" key="GridCell.Tab.0.bottom" timestamp="1600679053008">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -143,10 +145,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="240" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1600068603572" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1600666204352">
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1600851916320">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1600666204352" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1600851916320" />
     <state x="65" y="0" key="new project wizard" timestamp="1600678699015">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
